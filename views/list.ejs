@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+     <title>Todolist-version1</title>
+     <link rel="stylesheet" href="CSS/style.css">
+  </head>
+  <body>
+
+      <div class="box" id="heading">
+          <h1 class="timedate"><%= Type %></h1>
+      </div>
+   
+
+        <div class="box">
+          <form action="/delete" method="POST">
+        
+            <% data.forEach(function(item,index) { %>
+
+               <div class="item">
+                 <input type="checkbox" name='checkbox'  onchange="this.form.submit()" value="<%= item._id %>"  >
+                 <p>  <%= item.itemname %> </p>
+               
+              </div> 
+                    
+            <% })  %>
+             <input type="hidden" name="listname" value="<%= Type %>"   onchange="this.form.submit()"  >
+          </form>
+
+         <form class="item" action="/" method="POST">
+            <input type="text" name="inputvalue" placeholder="Text" autocomplete="off">
+            <button type="submit" name="list" value="<%= Type %>" >+</button>
+         </form>
+
+       </div>
+    
+</body>
+</html>
+
+
+
